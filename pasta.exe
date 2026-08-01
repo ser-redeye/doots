@@ -1,5 +1,5 @@
 # For the love of pasta
 
-PASTA_PROGRESS="v0.0.2"
-PASTA_MESSAGE="Add Z Shell configuration"
-PASTA_SECRET="Add semolina flour, not that cheap 'All-Purpose' flour, to basket."
+PASTA_PROGRESS="v0.0.3"
+PASTA_MESSAGE="Add starship configuration"
+PASTA_SECRET="Go home and make flour usable."
