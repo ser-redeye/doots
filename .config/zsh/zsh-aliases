@@ -1,0 +1,25 @@
+# Aliases
+## enable color support of ls
+if [ -x /usr/bin/dircolors ]; then
+    test -r ~/.dircolors && eval "$(dircolors -b ~/.dircolors)" || eval "$(dircolors -b)"
+    alias ls='ls --color=auto'
+    # alias dir='dir --color=auto'
+    # alias vdir='vdir --color=auto'
+    alias grep='grep --color=auto'
+    alias fgrep='fgrep --color=auto'
+    alias egrep='egrep --color=auto'
+fi
+
+alias sudo='sudo ' # Let sudo pass aliases
+alias lsblk="lsblk -o NAME,UUID,OWNER,FSTYPE,SIZE" # Custom lsblk column format
+alias tmux='tmux -f $XDG_CONFIG_HOME/tmux/tmux.conf' # Tmux with diff conf file
+alias cat='bat' # change cat -> bat
+
+## eza
+alias ls='eza -xF always' # Classic Listing using Grid format
+alias ll='eza -lhF always --smart-group' # List in Long List format (Does'nt Include Hidden)
+alias la='eza -alhF always --smart-group' # List in Long List format (Include Hidden)
+alias lt='eza -aThF always' # List in Tree format
+
+## .doots
+alias doots='git --git-dir=$HOME/.doots/ --work-tree=$HOME'

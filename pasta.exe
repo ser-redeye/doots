@@ -1,5 +1,5 @@
 # For the love of pasta
 
-PASTA_PROGRESS="v0.0.1"
-PASTA_MESSAGE="Initialize my dotfiles"
-PASTA_SECRET="Going grocery shopping."
+PASTA_PROGRESS="v0.0.2"
+PASTA_MESSAGE="Add Z Shell configuration"
+PASTA_SECRET="Add semolina flour, not that cheap 'All-Purpose' flour, to basket."
