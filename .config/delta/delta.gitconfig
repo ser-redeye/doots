@@ -1,0 +1,14 @@
+[core]
+	pages = delta
+[interactive]
+	diffFilter = delta --color-only
+[merge]
+	conflictStyle = zdiff3
+[diff]
+	colorMoved = default
+[delta]
+	navigate = true
+	line-numbers = true
+	hyperlinks = true
+	side-by-side = true
+	features = catppuccin-mocha
