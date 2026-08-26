@@ -1,0 +1,59 @@
+[[plugin.deps]]
+use = "yazi-rs/plugins:git"
+rev = "c591a36"
+hash = "5bb0bfab901d3601c370eafdd66edd31"
+
+[[plugin.deps]]
+use = "imsi32/yatline"
+rev = "c5d4b48"
+hash = "e6e98d12b1648d1894c2b560d85eeaa7"
+
+[[plugin.deps]]
+use = "yazi-rs/plugins:full-border"
+rev = "c591a36"
+hash = "f281261ff04ad7ec867c3f802a50835f"
+
+[[plugin.deps]]
+use = "yazi-rs/plugins:jump-to-char"
+rev = "c591a36"
+hash = "7a4b4237223aaa94e589d1c01a23542a"
+
+[[plugin.deps]]
+use = "yazi-rs/plugins:smart-filter"
+rev = "c591a36"
+hash = "d6f7351ea25a43c9b5f4315fa1e23935"
+
+[[plugin.deps]]
+use = "yazi-rs/plugins:toggle-pane"
+rev = "c591a36"
+hash = "5b2fbef7d1513ce38ff72623a071a5e"
+
+[[plugin.deps]]
+use = "ser-redeye/diff"
+rev = "0690936"
+hash = "f5d7a905d117a80b958cd25fbc4352c2"
+
+[[flavor.deps]]
+use = "yazi-rs/flavors:catppuccin-latte"
+rev = "20b47bf"
+hash = "273ee53369ccfbf7feb9b0c65e387ed8"
+
+[[flavor.deps]]
+use = "yazi-rs/flavors:catppuccin-macchiato"
+rev = "20b47bf"
+hash = "5b1bf96d1cba26376087c37de993c517"
+
+[[flavor.deps]]
+use = "yazi-rs/flavors:catppuccin-frappe"
+rev = "20b47bf"
+hash = "ab7c71d442d3a9e16331ea0d95ab36a8"
+
+[[flavor.deps]]
+use = "yazi-rs/flavors:catppuccin-mocha"
+rev = "20b47bf"
+hash = "ce320f877fe709b189433941aba747c4"
+
+[[flavor.deps]]
+use = "yazi-rs/flavors:dracula"
+rev = "20b47bf"
+hash = "40136c9a02e166067a36d9ad618887f2"

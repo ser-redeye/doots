@@ -1,0 +1,43 @@
+## diff selected vs hovered entry using git
+[[mgr.prepend_keymap]]
+on   = [ "<A-d>", "<Enter>" ]
+run  = "plugin diff"
+desc = "Diff selected vs hovered"
+
+## diff selected vs hovered entry using nvim diff mode
+[[mgr.prepend_keymap]]
+on   = [ "<A-d>", "n" ]
+run  = 'plugin diff -- "nvim -d {left} {right}"'
+desc = "Diff selected vs hovered (nvim)"
+
+## jumpn to entry starting with <char>
+[[mgr.prepend_keymap]]
+on   = "f"
+run  = "plugin jump-to-char"
+desc = "Jump to char"
+
+## automatic filtering. When down to a single entry, If it's:
+## - a directory, enter into it
+## - a file     , hit submit to open
+[[mgr.prepend_keymap]]
+on   = "F"
+run  = "plugin smart-filter"
+desc = "Smart filter"
+
+## reset toggle-pane effect
+[[mgr.prepend_keymap]]
+on   = [ "T", "r" ]
+run  = "plugin toggle-pane reset"
+desc = "Reset toggle-pane changes"
+
+## toggle preview pane's full-zoom
+[[mgr.prepend_keymap]]
+on   = [ "T", "p" ]
+run  = "plugin toggle-pane max-preview"
+desc = "Toggle preview pane's zoom"
+
+## toggle current pane's full-zoom
+[[mgr.prepend_keymap]]
+on   = [ "T", "c" ]
+run  = "plugin toggle-pane max-current"
+desc = "Toggle current pane's zoom"

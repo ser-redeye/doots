@@ -1,0 +1,23 @@
+[flavor]
+dark  = "catppuccin-macchiato"
+light = "catppuccin-macchiato"
+
+[git]
+# Signs
+unknown_sign   = " "
+ignored_sign   = "!"
+untracked_sign = "?"
+modified_sign  = "M"
+added_sign     = "A"
+deleted_sign   = "D"
+updated_sign   = "U"
+clean_sign     = " "
+## Colours
+# unknown   = {}
+# modified  = {}
+# added     = {}
+# untracked = {}
+# ignored   = {}
+# deleted   = {}
+# updated   = {}
+# clean     = {}
