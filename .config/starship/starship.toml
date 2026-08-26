@@ -4,6 +4,8 @@
 "$schema" = 'https://starship.rs/config-schema.json'
 # New Line after a command
 add_newline = true
+# prompt for incomplete statements
+continuation_prompt = '[▶](bright-black) '
 # Command timeout of 5 Sec
 command_timeout = 5000
 # Selection from available 'palettes'
