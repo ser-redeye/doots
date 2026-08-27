@@ -1,0 +1,28 @@
+#!/usr/bin/env bash
+# update-ghostty-themes.sh — usage: ./update-ghostty-themes.sh [ref-or-sha]
+# TODO: Remove this workaround when i find a better way to install ghostty.
+#       or if Terra decides to add them later.
+# Background:
+# I'm currently using ghostty via Terra repo. They don't package themes with it.
+# Thus, i'm using this script to fetch/update themes as necessary.
+# Refer to terrapkg/packages#6980 for more info.
+
+set -euo pipefail
+REPO="https://github.com/mbadolato/iTerm2-Color-Schemes.git"
+REF="${1:-master}"
+TMP=$(mktemp -d)
+
+git init -q "$TMP"
+git -C "$TMP" remote add origin "$REPO"
+git -C "$TMP" fetch --depth 1 origin "$REF"
+git -C "$TMP" checkout -q FETCH_HEAD
+git -C "$TMP" sparse-checkout init --cone
+git -C "$TMP" sparse-checkout set ghostty
+git -C "$TMP" checkout -q FETCH_HEAD -- ghostty   # re-apply sparse pattern after checkout
+
+rm -rf ~/.config/ghostty/themes
+cp -r "$TMP/ghostty" ~/.config/ghostty/themes
+git -C "$TMP" rev-parse FETCH_HEAD > ~/.config/ghostty/themes.lock
+
+rm -rf "$TMP"
+echo "Updated with iTerm2-Color-Schemes @ $(cat ~/.config/ghostty/themes.lock)"

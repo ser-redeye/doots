@@ -1,0 +1,30 @@
+# Font settings
+font-size = 14
+font-family = Eirian
+font-family = psudoFont Liga Mono
+font-family = Mononoki Nerd Font
+font-synthetic-style = false
+
+# Remove title bar while keeping the asthetic border
+window-decoration = client
+gtk-titlebar = false
+# Add more padding to the left
+window-padding-x = 8,4
+
+# Increase the scrollback size from 10 MiB to 20 MiB
+scrollback-limit = 20000000
+
+# Hides mouse while typing in pane
+mouse-hide-while-typing = true
+
+# Keeps ghostty service running in the background after last window is closed
+# for fast load time.
+quit-after-last-window-closed = false
+
+# Configure background opacity for KDE Plasma DE
+background-opacity = 0.65
+background-opacity-cells = true
+# TODO: Broken in KDE Plasma as of Ghostty v1.3.1.
+# Waiting for next release that contains the fix #ghostty-org/ghostty#10727
+# Refer to #ghostty-org/ghostty#13041 for more info.
+background-blur = true

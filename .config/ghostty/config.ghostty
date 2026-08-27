@@ -1,0 +1,4 @@
+theme = "Catppuccin Mocha"
+
+config-file = keybinds.ghostty
+config-file = options.ghostty

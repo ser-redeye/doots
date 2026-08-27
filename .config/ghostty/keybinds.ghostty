@@ -1,0 +1,36 @@
+# KEYBINDS
+
+# Jump to the begining of previous prompt
+keybind = performable:alt+k=jump_to_prompt:-1
+# Jump to the begining of next prompt
+keybind = performable:alt+j=jump_to_prompt:1
+# Paste selected text
+keybind = performable:alt+shift+v=paste_from_selection
+# Reset the terminal
+keybind = ctrl+shift+r=reset
+# Close closest surface ghostty
+keybind = ctrl+shift+w=close_surface
+# Quit ghostty
+keybind = ctrl+q=quit
+# Auto-Create split
+keybind = ctrl+shift+s>enter=new_split:auto
+# Split right
+keybind = ctrl+shift+s>l=new_split:right
+# Split down
+keybind = ctrl+shift+s>j=new_split:down
+# Split left
+keybind = ctrl+shift+s>h=new_split:left
+# Split up
+keybind = ctrl+shift+s>k=new_split:up
+# Move to right split
+keybind = performable:ctrl+shift+l=goto_split:right
+# Move to down split
+keybind = performable:ctrl+shift+j=goto_split:down
+# Move to left split
+keybind = performable:ctrl+shift+h=goto_split:left
+# Move to up split
+keybind = performable:ctrl+shift+k=goto_split:up
+# Toggle split zoom
+keybind = performable:ctrl+shift+==toggle_split_zoom
+# Quick terminal
+keybind = global:ctrl+backquote=toggle_quick_terminal
