@@ -52,6 +52,10 @@ bindkey ^S history-incremental-search-forward
 autoload -Uz edit-command-line
 zle -N edit-command-line
 bindkey -M vicmd v edit-command-line
+# In Ghostty, ctrl+[ sends CSI sequence `^[[91;5u` isof `^[`
+# Refer to ghostty-org/ghostty#5071 for more info.
+bindkey -M viins '^[[91;5u' vi-cmd-mode
+bindkey -M vicmd '^[[91;5u' vi-cmd-mode
 
 # +-------------+
 # | COMPLETIONS |
