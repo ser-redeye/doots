@@ -1,5 +1,5 @@
 # For the love of pasta
 
-PASTA_PROGRESS="v0.0.5"
-PASTA_MESSAGE="Add ghostty configuration"
-PASTA_SECRET="... and Almonds & Walnuts. Non-authentic? Let it be."
+PASTA_PROGRESS="v0.0.6"
+PASTA_MESSAGE="Add neovim configuration"
+PASTA_SECRET="Just received my shipment of San Marzano tomatoes."
