@@ -1,0 +1,2 @@
+custom-shader = "./shaders/cursor/cursor_warp.glsl"
+custom-shader = "./shaders/cursor/ripple_cursor.glsl"
