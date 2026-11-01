@@ -7,14 +7,27 @@
 # | HISTORY |
 # +---------+
 
-setopt APPEND_HISTORY # Append to history file instead of replacing when using multiple zsh sessions
-setopt INC_APPEND_HISTORY # Append the command without waiting for shell exit
-setopt HIST_FIND_NO_DUPS # Do not display a previously found event
-setopt HIST_IGNORE_DUPS # Do not record an event that was just recorded again
-setopt HIST_IGNORE_ALL_DUPS # Delete an old recorded event if a new event is a duplicate
-setopt HIST_IGNORE_SPACE # Do not record an event starting with a space 
-setopt HIST_SAVE_NO_DUPS # Do not write a duplicate event to the history file.
-setopt SHARE_HISTORY # See previous commands that has been entered using different terminals
+# Append to histfile instead of replacing when using multiple sessions
+setopt APPEND_HISTORY
+# Save each command with timestamp and duration.
+setopt EXTENDED_HISTORY
+# Don't display a previously found command.
+setopt HIST_FIND_NO_DUPS
+# Delete an old recorded command if same as the new command.
+setopt HIST_IGNORE_ALL_DUPS
+# Don't record a command that was just recorded.
+setopt HIST_IGNORE_DUPS
+# Don't record a command starting with a space.
+setopt HIST_IGNORE_SPACE
+# Write the command to histfile after it's finishes execution so that
+# time taken is recorded correctly, if paired with `EXTENDED_HISTORY`.
+#
+# NOTE: I prefer this over SHARE_HISTORY as I want my sessiosn to be
+# independent, there is always `fc -RI` when I do need history from an
+# alt session.
+setopt INC_APPEND_HISTORY_TIME
+# Use system’s fcntl call for file locking operation.
+setopt HIST_FCNTL_LOCK
 
 # +---------------+
 # | EXTRA OPTIONS |
@@ -42,18 +55,21 @@ source $ZDOTDIR/zsh-functions
 
 # Vi mode
 bindkey -v
-export KEYTIMEOUT=1
+# Max wait time (in hundredths of a second) for a subsequent keypress
+# when reading bound multi-character sequences.
+#
+# TODO: DO i need this? I copied from a blog I read which said
+# "makes the switch between modes quicker."
+# Experimenting for a while without this.
+# export KEYTIMEOUT=1; # 10 ms
 
-# Restore default behaviour overwritten due to vi mode
-bindkey ^R history-incremental-search-backward 
-bindkey ^S history-incremental-search-forward
-
-# when in NORMAL mode, hit v to directly edit the command in the default editor
+# In NORMAL mode, `v` edits the command in the default editor.
 autoload -Uz edit-command-line
 zle -N edit-command-line
 bindkey -M vicmd v edit-command-line
-# In Ghostty, ctrl+[ sends CSI sequence `^[[91;5u` isof `^[`
-# Refer to ghostty-org/ghostty#5071 for more info.
+
+# In Ghostty, Ctrl+[ sends CSI `^[[91;5u` instead of `^[`.
+# See ghostty-org/ghostty#5071.
 bindkey -M viins '^[[91;5u' vi-cmd-mode
 bindkey -M vicmd '^[[91;5u' vi-cmd-mode
 
@@ -61,24 +77,18 @@ bindkey -M vicmd '^[[91;5u' vi-cmd-mode
 # | COMPLETIONS |
 # +-------------+
 
-typeset -U fpath
-fpath=($ZDOTDIR/zsh-custom-completions/ $fpath)
 source $ZDOTDIR/completion.zsh
 
 # +----------+
 # | BINDINGS |
 # +----------+
 
-bindkey '^P' up-history # Move to the previous event in the history list
-bindkey '^N' down-history # Move to the new event in the history list
-bindkey -r '^l' # Remove clear-screen binding (ctrl+l) cuz used by tmux (switch pane)
-
-# +-----+
-# | OSC |
-# +-----+
-
-# OSC 1337
-precmd () { echo -n "\x1b]1337;CurrentDir=$(pwd)\x07" }
+# Move to the previous event in the history list
+bindkey '^P' up-history
+# Move to the new event in the history list
+bindkey '^N' down-history
+# Delete clear-screen on `ctrl+l`, since it's used by tmux (switch pane)
+bindkey -r '^l'
 
 # +-------------------+
 # | Tool Integrations |
@@ -99,9 +109,6 @@ source <(fzf --zsh)
 # | Plugins |
 # +---------+
 
-# Change Cursor Plugin in vim
-source $ZDOTDIR/plugins/vim-cursor-mode/vim-cursor-mode.zsh
-
 ## Auto suggestions - unobtrusive and ghosttly
 export ZSH_AUTOSUGGEST_STRATEGY=(history completion)
 source $ZDOTDIR/plugins/zsh-autosuggestions/zsh-autosuggestions.zsh
@@ -110,5 +117,6 @@ source $ZDOTDIR/plugins/zsh-autosuggestions/zsh-autosuggestions.zsh
 source $ZDOTDIR/plugins/sudo/sudo-plugin.zsh
 
 ## Syntax highlighting
+## WARNING: Catppuccin theme must be loaded before zsh-syntax-highlighting.
 source $ZDOTDIR/plugins/catppuccin-zsh-syntax-highlighting/themes/catppuccin_macchiato-zsh-syntax-highlighting.zsh
 source $ZDOTDIR/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh

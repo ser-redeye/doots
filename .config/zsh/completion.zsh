@@ -1,6 +1,16 @@
+# **Credits**: [Phantas0s/.dotfiles](https://github.com/Phantas0s/.dotfiles/blob/d6ab344af46ab7b710ca581422826f4d51f35ddb/zsh/completion.zsh)
+#   ____ ___  __  __ ____  _     _____ _____ ___ ___  _   _
+#  / ___/ _ \|  \/  |  _ \| |   | ____|_   _|_ _/ _ \| \ | |
+# | |  | | | | |\/| | |_) | |   |  _|   | |  | | | | |  \| |
+# | |__| |_| | |  | |  __/| |___| |___  | |  | | |_| | |\  |
+#  \____\___/|_|  |_|_|   |_____|_____| |_| |___\___/|_| \_|
+
 # +---------+
 # | General |
 # +---------+
+
+# Load more completions
+fpath=($ZDOTDIR/plugins/zsh-completions/src $fpath)
 
 # Should be called before compinit
 zmodload zsh/complist
@@ -25,6 +35,7 @@ _comp_options+=(globdots) # With hidden files
 # | Options |
 # +---------+
 
+# setopt GLOB_COMPLETE      # Show autocompletion menu with globs
 setopt MENU_COMPLETE        # Automatically highlight first element of completion menu
 setopt AUTO_LIST            # Automatically list choices on ambiguous completion.
 setopt COMPLETE_IN_WORD     # Complete from both ends of a word.
@@ -41,7 +52,7 @@ zstyle ':completion:*' completer _extensions _complete _approximate
 
 # Use cache for commands using cache
 zstyle ':completion:*' use-cache on
-zstyle ':completion:*' cache-path "$HOME/.cache/zsh/.zcompcache"
+zstyle ':completion:*' cache-path "$XDG_CACHE_HOME/zsh/.zcompcache"
 # Complete the alias when _expand_alias is used as a function
 zstyle ':completion:*' complete true
 
