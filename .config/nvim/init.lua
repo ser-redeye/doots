@@ -1,1 +1,1 @@
-require 'redeye'
+require("redeye")

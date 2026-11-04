@@ -1,2 +1,2 @@
-require 'redeye.core.options'
-require 'redeye.core.keymaps'
+require("redeye.core.options")
+require("redeye.core.keymaps")
