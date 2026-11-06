@@ -22,7 +22,7 @@ return {
     -- Markdown - markdownlint_cli2
     local markdownlint_cli2 = lint.linters["markdownlint-cli2"]
     local config_dir = os.getenv("XDG_CONFIG_HOME") or (vim.fn.expand("~") .. "/.config")
-    markdownlint_cli2.args = { "--config", config_dir .. "/markdownlint-cli2.yaml", "--" }
+    markdownlint_cli2.args = { "--config", config_dir .. "/markdownlint-cli2.jsonc", "-" }
 
     local lint_augroup = vim.api.nvim_create_augroup("lint", { clear = true })
 

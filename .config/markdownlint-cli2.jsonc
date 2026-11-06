@@ -1,0 +1,18 @@
+/*
+ * Global markdownlint-cli2 base config, passed via --config.
+ *
+ * Configuration Manuel: [Markdownlint README's options](https://github.com/DavidAnson/markdownlint/blob/main/README.md#options).
+ * Rules & options: [Rules.md](https://github.com/DavidAnson/markdownlint/blob/main/doc/Rules.md)
+ */
+{
+  "config": {
+    // MD013 - Line Length
+    // I do try to keep within 80 characters, but it's more of a soft limit.
+    // While, 100 would be a RED zone and 120 the hard limit.
+    "line-length": {
+      "line_length": 120,
+      "code_blocks": false,
+      "tables": false
+    }
+  }
+}
